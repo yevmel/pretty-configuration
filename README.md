@@ -13,7 +13,7 @@ human friendly representation of your applications configuration.
 
 ## samples
 
-* [template](template.html)
+* [template](src/test/resources/template.html)
 * [ant configuration](build.xml)
 * [gradle configuration (generateHTML task)](build.gradle)
 * [properties file (incl. meta)](src/test/resources/application.develop.properties)
