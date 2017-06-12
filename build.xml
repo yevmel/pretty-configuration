@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<project name="pretty-configuration" basedir="." default="main">
+    <target name="generateHTML">
+        <java classname="yevgeniy.melnichuk.prettyconfiguration.Main" fork="true">
+            <arg value="--template" />
+            <arg value="src/test/resources/template.html" />
+            <arg value="--input-files" />
+            <arg value="src/test/resources/application.development.properties" />
+            <arg value="src/test/resources/application.production.properties" />
+            <arg value="--output-dir" />
+            <arg value="./build/site/" />
+            <arg value="--output-name" />
+            <arg value="index.html" />
+        </java>
+    </target>
+
+    <target name="main" depends="generateHTML"/>
+</project>

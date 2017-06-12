@@ -1,0 +1,32 @@
+group 'yevgeniy.melnichuk'
+version '0.23'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.freemarker:freemarker:2.3.+'
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+    compile 'com.beust:jcommander:1.+'
+    testCompile 'junit:junit:4.+'
+}
+
+task generateHTML(type:JavaExec) {
+    main = 'yevgeniy.melnichuk.prettyconfiguration.Main'
+    classpath = sourceSets.main.runtimeClasspath
+    args(['--template', 'src/test/resources/template.html',
+        '--output-dir', './build/site/',
+        '--output-name', 'index.html',
+        '--input-files'] + getPropertiesFiles())
+
+}
+
+
+def getPropertiesFiles() {
+    new File('src/test/resources').listFiles({ file -> file.name.endsWith('.properties') } as FileFilter).collect({ File file -> file.path})
+}
