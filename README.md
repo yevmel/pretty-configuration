@@ -1,3 +1,5 @@
+![build result](https://travis-ci.org/yevmel/pretty-configuration.svg?branch=master)
+
 # pretty-configuration
 
 human friendly representation of your applications configuration.
