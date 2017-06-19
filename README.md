@@ -1,5 +1,5 @@
 ![build result](https://travis-ci.org/yevmel/pretty-configuration.svg?branch=master)
-
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.png?v=103)](https://opensource.org/licenses/mit-license.php)
 # pretty-configuration
 
 human friendly representation of your applications configuration.
