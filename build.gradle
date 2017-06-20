@@ -2,6 +2,9 @@ group 'yevgeniy.melnichuk'
 version '0.23'
 
 apply plugin: 'java'
+apply plugin: 'maven-publish'
+apply plugin: 'maven'
+apply plugin: 'signing'
 
 sourceCompatibility = 1.8
 
@@ -16,6 +19,11 @@ dependencies {
     testCompile 'junit:junit:4.+'
 }
 
+task sources(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
 task generateHTML(type:JavaExec) {
     main = 'yevgeniy.melnichuk.prettyconfiguration.Main'
     classpath = sourceSets.main.runtimeClasspath
@@ -26,7 +34,14 @@ task generateHTML(type:JavaExec) {
 
 }
 
-
 def getPropertiesFiles() {
     new File('src/test/resources').listFiles({ file -> file.name.endsWith('.properties') } as FileFilter).collect({ File file -> file.path})
+}
+
+signing {
+    sign configurations.archives
+}
+
+artifacts {
+    archives sources
 }
