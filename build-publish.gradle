@@ -1,0 +1,76 @@
+group 'de.melnichuk'
+version '0.24.0'
+
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.freemarker:freemarker:2.3.+'
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+    compile 'com.beust:jcommander:1.+'
+    testCompile 'junit:junit:4.+'
+}
+
+task sources(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+signing {
+    sign configurations.archives
+}
+
+artifacts {
+    archives sources
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            pom.project {
+                name 'pretty-configuration'
+                packaging 'jar'
+                url 'https://github.com/yevmel/pretty-configuration'
+
+                scm {
+                    connection 'scm:git:git://github.com/yevmel/pretty-configuration.git'
+                    developerConnection 'scm:git:ssh://github.com:yevmel/pretty-configuration.git'
+                    url 'http://github.com/yevmel/pretty-configuration/tree/master'
+                }
+
+                licenses {
+                    license {
+                        name 'MIT'
+                        url 'https://github.com/yevmel/pretty-configuration/blob/master/LICENSE'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'yevmel'
+                        name 'Yevgeniy Melnichuk'
+                        email 'yevgeniy.melnichuk@googlemail.com'
+                    }
+                }
+            }
+
+        }
+    }
+}
