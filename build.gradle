@@ -1,5 +1,5 @@
 group 'de.melnichuk'
-version '0.26.0-SNAPSHOT'
+version '0.26.0'
 
 apply plugin: 'java'
 apply plugin: 'maven'
@@ -67,6 +67,7 @@ uploadArchives {
                 name 'pretty-configuration'
                 packaging 'jar'
                 url 'https://github.com/yevmel/pretty-configuration'
+                description 'human friendly representation of your applications configuration.'
 
                 scm {
                     connection 'scm:git:git://github.com/yevmel/pretty-configuration.git'
