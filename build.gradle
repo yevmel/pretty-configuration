@@ -32,17 +32,22 @@ def getPropertiesFiles() {
     new File('src/test/resources').listFiles({ file -> file.name.endsWith('.properties') } as FileFilter).collect({ File file -> file.path})
 }
 
-task sources(type: Jar) {
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
     classifier = 'sources'
     from sourceSets.main.allSource
 }
 
-signing {
-    sign configurations.archives
+artifacts {
+    archives sourcesJar, javadocJar
 }
 
-artifacts {
-    archives sources
+signing {
+    sign configurations.archives
 }
 
 uploadArchives {
