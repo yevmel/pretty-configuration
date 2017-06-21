@@ -10,10 +10,10 @@ repositories {
 }
 
 dependencies {
-    compile 'org.freemarker:freemarker:2.3.+'
+    compile 'org.freemarker:freemarker:2.3.26-incubating'
     compile 'ch.qos.logback:logback-classic:1.2.3'
-    compile 'com.beust:jcommander:1.+'
-    testCompile 'junit:junit:4.+'
+    compile 'com.beust:jcommander:1.72'
+    testCompile 'junit:junit:4.12'
 }
 
 task generateHTML(type:JavaExec) {
