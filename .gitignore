@@ -1,6 +1,5 @@
 .DS_Store
 /.idea/
 .gradle
-gradle/
-gradlew*
-gradle.properties.local
+gradle*
+build.sh
