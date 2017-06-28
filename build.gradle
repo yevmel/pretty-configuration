@@ -19,7 +19,7 @@ dependencies {
 }
 
 task generateHTML(type:JavaExec) {
-    main = 'yevgeniy.melnichuk.prettyconfiguration.Main'
+    main = 'de.melnichuk.prettyconfiguration.Main'
     classpath = sourceSets.main.runtimeClasspath
     args(['--template', 'src/test/resources/template.html',
         '--output-dir', './build/site/',
