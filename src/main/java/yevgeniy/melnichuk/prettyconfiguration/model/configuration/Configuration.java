@@ -25,4 +25,23 @@ public class Configuration {
     public String getIdentifier() {
         return identifier;
     }
+
+    /**
+     * adds properties and meta information from mixin to this configuration. does not override existing properties or meta information.
+     */
+    public void applyMixin(Configuration mixin) {
+        mixin.getProperties().forEach((mixinProperty) -> {
+            Property property = this.properties.get(mixinProperty.getName());
+            if (property == null) {
+                this.addProperty(mixinProperty);
+            } else {
+                Map<String, String> meta = property.getMeta();
+                mixinProperty.getMeta().forEach((metaName, metaValue) -> {
+                    if (!meta.containsKey(metaName)) {
+                        property.addMeta(metaName, metaValue);
+                    }
+                });
+            }
+        });
+    }
 }
