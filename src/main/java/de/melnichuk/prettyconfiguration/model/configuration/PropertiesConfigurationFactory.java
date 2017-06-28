@@ -1,4 +1,4 @@
-package yevgeniy.melnichuk.prettyconfiguration.model.configuration;
+package de.melnichuk.prettyconfiguration.model.configuration;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

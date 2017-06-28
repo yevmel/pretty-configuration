@@ -1,7 +1,7 @@
-package yevgeniy.melnichuk.prettyconfiguration.renderer;
+package de.melnichuk.prettyconfiguration.renderer;
 
 
-import yevgeniy.melnichuk.prettyconfiguration.model.Model;
+import de.melnichuk.prettyconfiguration.model.Model;
 
 public interface Renderer {
     void render(Model model) throws Exception;

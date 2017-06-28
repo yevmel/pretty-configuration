@@ -1,6 +1,6 @@
-package yevgeniy.melnichuk.prettyconfiguration.model;
+package de.melnichuk.prettyconfiguration.model;
 
-import yevgeniy.melnichuk.prettyconfiguration.model.configuration.Configuration;
+import de.melnichuk.prettyconfiguration.model.configuration.Configuration;
 
 import java.util.*;
 

@@ -1,8 +1,8 @@
-package yevgeniy.melnichuk.prettyconfiguration.renderer;
+package de.melnichuk.prettyconfiguration.renderer;
 
 import freemarker.cache.FileTemplateLoader;
 import freemarker.template.Configuration;
-import yevgeniy.melnichuk.prettyconfiguration.model.Model;
+import de.melnichuk.prettyconfiguration.model.Model;
 
 import java.io.File;
 import java.io.FileWriter;

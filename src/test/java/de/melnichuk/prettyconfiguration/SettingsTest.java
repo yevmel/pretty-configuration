@@ -1,4 +1,4 @@
-package yevgeniy.melnichuk.prettyconfiguration;
+package de.melnichuk.prettyconfiguration;
 
 import com.beust.jcommander.JCommander;
 import org.junit.Assert;

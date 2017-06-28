@@ -1,13 +1,13 @@
-package yevgeniy.melnichuk.prettyconfiguration;
+package de.melnichuk.prettyconfiguration;
 
 import com.beust.jcommander.JCommander;
+import de.melnichuk.prettyconfiguration.model.configuration.PropertiesConfigurationFactory;
+import de.melnichuk.prettyconfiguration.renderer.FreemarkerRenderer;
+import de.melnichuk.prettyconfiguration.renderer.Renderer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import yevgeniy.melnichuk.prettyconfiguration.model.configuration.Configuration;
-import yevgeniy.melnichuk.prettyconfiguration.model.Model;
-import yevgeniy.melnichuk.prettyconfiguration.model.configuration.PropertiesConfigurationFactory;
-import yevgeniy.melnichuk.prettyconfiguration.renderer.FreemarkerRenderer;
-import yevgeniy.melnichuk.prettyconfiguration.renderer.Renderer;
+import de.melnichuk.prettyconfiguration.model.configuration.Configuration;
+import de.melnichuk.prettyconfiguration.model.Model;
 
 import java.io.File;
 import java.util.Collection;
