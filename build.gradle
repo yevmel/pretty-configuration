@@ -1,5 +1,5 @@
 group 'de.melnichuk'
-version '0.26.0'
+version '0.27.0-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'maven'
