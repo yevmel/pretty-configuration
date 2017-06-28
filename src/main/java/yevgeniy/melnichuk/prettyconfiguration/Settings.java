@@ -25,6 +25,9 @@ public class Settings {
     @Parameter(names = "--input-files", variableArity = true)
     private List<String> inputFiles;
 
+    @Parameter(names = "--input-mixin-files", variableArity = true)
+    private List<String> inputMixinFiles;
+
     public String getTemplate() {
         return template;
     }
@@ -47,5 +50,9 @@ public class Settings {
 
     public List<String> getInputFiles() {
         return inputFiles;
+    }
+
+    public List<String> getInputMixinFiles() {
+        return inputMixinFiles;
     }
 }

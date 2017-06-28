@@ -48,6 +48,17 @@ public class SettingsTest {
     }
 
     @Test
+    public void shouldSetInputMixinFiles() {
+        String firstFile = "/foo/bar";
+        String secondFile = "/foo/baz";
+        Settings settings = setupSettings(new String[]{"--input-mixin-files", firstFile, secondFile});
+
+        Assert.assertEquals(2, settings.getInputMixinFiles().size());
+        Assert.assertTrue(settings.getInputMixinFiles().contains(firstFile));
+        Assert.assertTrue(settings.getInputMixinFiles().contains(secondFile));
+    }
+
+    @Test
     public void shouldSetTemplate() {
         String value = "template.html";
         String[] args = {"--template", value};
