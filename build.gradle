@@ -24,7 +24,10 @@ task generateHTML(type:JavaExec) {
     args(['--template', 'src/test/resources/template.html',
         '--output-dir', './build/site/',
         '--output-name', 'index.html',
-        '--input-files'] + getPropertiesFiles())
+        '--input-files',
+            'src/test/resources/application.develop.properties',
+            'src/test/resources/application.production.properties',
+        '--input-mixin-files', 'src/test/resources/mixin.properties'])
 
 }
 
