@@ -20,11 +20,17 @@ public class Main {
     public static void main(String ...args) throws Exception {
         Settings settings = setupSettings(args);
 
-        Collection<File> files = settings.getInputFiles().stream().map(path -> new File(path)).collect(Collectors.toSet());
+        Collection<File> mixinFiles = settings.getInputMixinFiles().stream().map(path -> new File(path)).collect(Collectors.toSet());
+        List<Configuration> mixins = new PropertiesConfigurationFactory()
+                .createConfigurationFromPropertiesFiles(mixinFiles);
 
-        // TODO process files individually to be able to mix *.properties and other file types.
+        Collection<File> files = settings.getInputFiles().stream().map(path -> new File(path)).collect(Collectors.toSet());
         List<Configuration> configurations = new PropertiesConfigurationFactory()
                 .createConfigurationFromPropertiesFiles(files);
+
+        configurations.forEach(configuration -> {
+            mixins.forEach(mixin -> configuration.applyMixin(mixin));
+        });
 
         Model model = new Model(configurations);
         Renderer renderer = setupRenderer(model, settings);

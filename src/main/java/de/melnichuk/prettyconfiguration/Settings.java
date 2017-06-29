@@ -23,10 +23,10 @@ public class Settings {
     private String inputDir;
 
     @Parameter(names = "--input-files", variableArity = true)
-    private List<String> inputFiles;
+    private List<String> inputFiles = new ArrayList<>();
 
     @Parameter(names = "--input-mixin-files", variableArity = true)
-    private List<String> inputMixinFiles;
+    private List<String> inputMixinFiles = new ArrayList<>();
 
     public String getTemplate() {
         return template;
